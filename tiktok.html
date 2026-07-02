@@ -1,0 +1,412 @@
+<!-- <!DOCTYPE html>
+<html>
+  <head>
+    <title>TikTok Login</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f2f2f2;
+      }
+      .container {
+        width: 300px;
+        margin: 0 auto;
+        padding: 50px;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      }
+      h1 {
+        text-align: center;
+      }
+      form {
+        margin-top: 30px;
+      }
+      .input-container {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 20px;
+      }
+      .input-container input {
+        padding: 10px;
+        width: 100%;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+      }
+      button {
+        padding: 10px 20px;
+        background-color: #387cf5;
+        color: white;
+        font-size: 16px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>TikTok Login</h1>
+      <form action="submit.php" method="post">
+        <div class="input-container">
+          <label for="username">Username:</label>
+          <input type="text" id="username" name="username" required>
+        </div>
+        <div class="input-container">
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password" required>
+        </div>
+        <button type="submit">Login</button>
+      </form>
+    </div>
+  </body>
+</html>
+``` -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>TikTok Login</title>
+    <style>
+        /* ----------------------------------------------
+            RESET & FONTS
+        ---------------------------------------------- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 16px;
+            margin: 0;
+        }
+
+        /* ----------------------------------------------
+            MAIN CONTAINER (Mobile-First)
+        ---------------------------------------------- */
+        .login-container {
+            background-color: #000;
+            width: 100%;
+            max-width: 400px;
+            padding: 24px 20px 30px;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* ----------------------------------------------
+            TIKTOK LOGO (SVG)
+        ---------------------------------------------- */
+        .logo {
+            width: 130px;
+            height: auto;
+            margin-bottom: 28px;
+        }
+
+        .logo svg {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* ----------------------------------------------
+            HEADINGS (Only ONE!)
+        ---------------------------------------------- */
+        .main-title {
+            color: #fff;
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            margin-bottom: 4px;
+            text-align: center;
+        }
+
+        .sub-title {
+            color: #8a8b91;
+            font-size: 15px;
+            font-weight: 400;
+            margin-bottom: 32px;
+            text-align: center;
+        }
+
+        /* ----------------------------------------------
+            FORM & FLOATING LABELS (TikTok Style)
+        ---------------------------------------------- */
+        form {
+            width: 100%;
+        }
+
+        .input-group {
+            position: relative;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 18px 16px 6px 16px;
+            background-color: #1a1a1a;
+            border: 1px solid #2a2a2a;
+            border-radius: 12px;
+            color: #fff;
+            font-size: 16px;
+            outline: none;
+            transition: border-color 0.2s ease;
+            height: 58px;
+        }
+
+        .input-group input:focus {
+            border-color: #fe2c55;
+        }
+
+        /* Floating Label */
+        .input-group label {
+            position: absolute;
+            left: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #8a8b91;
+            font-size: 16px;
+            font-weight: 400;
+            pointer-events: none;
+            transition: all 0.15s ease-in-out;
+            background-color: transparent;
+            padding: 0 2px;
+        }
+
+        /* Jab user type kare ya field focus ho, label upar chala jaaye */
+        .input-group input:focus + label,
+        .input-group input:not(:placeholder-shown) + label {
+            top: 10px;
+            transform: translateY(0);
+            font-size: 11px;
+            color: #8a8b91;
+            font-weight: 500;
+        }
+
+        /* Placeholder ko invisible rakhna taake floating label dikhe */
+        .input-group input::placeholder {
+            color: transparent;
+        }
+
+        /* iOS/Safari ke liye placeholder visible nahi hona chahiye jab label upar ho */
+        .input-group input:not(:focus)::placeholder {
+            color: transparent;
+        }
+
+        /* ----------------------------------------------
+            LOGIN BUTTON (Gradient)
+        ---------------------------------------------- */
+        .login-btn {
+            width: 100%;
+            padding: 16px;
+            margin-top: 8px;
+            background: linear-gradient(90deg, #ff004f 0%, #00f2ea 100%);
+            border: none;
+            border-radius: 12px;
+            color: #fff;
+            font-size: 17px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: opacity 0.2s ease;
+            letter-spacing: 0.3px;
+        }
+
+        .login-btn:hover {
+            opacity: 0.85;
+        }
+        .login-btn:active {
+            transform: scale(0.97);
+        }
+
+        /* ----------------------------------------------
+            DIVIDER
+        ---------------------------------------------- */
+        .divider {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            margin: 24px 0 20px;
+        }
+
+        .divider-line {
+            flex: 1;
+            height: 1px;
+            background-color: #2a2a2a;
+        }
+
+        .divider-text {
+            color: #8a8b91;
+            font-size: 13px;
+            font-weight: 500;
+            padding: 0 16px;
+        }
+
+        /* ----------------------------------------------
+            SIGN UP LINK
+        ---------------------------------------------- */
+        .signup-link {
+            color: #fff;
+            font-size: 15px;
+            font-weight: 400;
+            text-align: center;
+            margin-bottom: 28px;
+        }
+
+        .signup-link a {
+            color: #fe2c55;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .signup-link a:hover {
+            text-decoration: underline;
+        }
+
+        /* ----------------------------------------------
+            FOOTER
+        ---------------------------------------------- */
+        .footer-text {
+            color: #5a5a5a;
+            font-size: 11px;
+            text-align: center;
+            line-height: 1.6;
+        }
+
+        .footer-text a {
+            color: #8a8b91;
+            text-decoration: none;
+        }
+
+        .footer-text a:hover {
+            text-decoration: underline;
+        }
+
+        /* ----------------------------------------------
+            EDUCATIONAL WATERMARK (Anti-phishing)
+        ---------------------------------------------- */
+        .watermark {
+            margin-top: 22px;
+            padding: 5px 14px;
+            background-color: #121212;
+            border-radius: 50px;
+            color: #4a4a4a;
+            font-size: 9px;
+            font-weight: 600;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+            border: 1px solid #222;
+        }
+
+        /* ----------------------------------------------
+            RESPONSIVE: TABLETS & DESKTOP
+        ---------------------------------------------- */
+        @media (min-width: 500px) {
+            .login-container {
+                background-color: #121212;
+                border-radius: 20px;
+                padding: 48px 40px 36px;
+                border: 1px solid #2a2a2a;
+                box-shadow: 0 20px 60px rgba(0, 0, 0, 0.9);
+            }
+
+            .logo {
+                width: 150px;
+            }
+
+            .main-title {
+                font-size: 30px;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .login-container {
+                max-width: 440px;
+            }
+        }
+
+        /* ----------------------------------------------
+            EXTRA SMALL PHONES ( < 360px )
+        ---------------------------------------------- */
+        @media (max-width: 360px) {
+            .login-container {
+                padding: 16px 12px 20px;
+            }
+            .main-title {
+                font-size: 24px;
+            }
+            .input-group input {
+                height: 52px;
+                font-size: 15px;
+                padding: 16px 14px 4px 14px;
+            }
+            .input-group input:focus + label,
+            .input-group input:not(:placeholder-shown) + label {
+                top: 8px;
+                font-size: 10px;
+            }
+            .login-btn {
+                padding: 14px;
+                font-size: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="login-container">
+        <!-- 🔥 SIRF EK HEADING (Duplicate nahi) -->
+        <h1 class="main-title">Log in to TikTok</h1>
+        <p class="sub-title">Welcome back! Enter your details to continue.</p>
+
+        <!-- FORM: Kisi bhi server par data nahi bhejta -->
+        <form action="submit.php" method="post" onsubmit="return false;">
+
+            <!-- Username Field (Floating Label) -->
+            <div class="input-group">
+                <input type="text" id="username" name="username" placeholder=" " required />
+                <label for="username">Email or Username</label>
+            </div>
+
+            <!-- Password Field (Floating Label) -->
+            <div class="input-group">
+                <input type="password" id="password" name="password" placeholder=" " required />
+                <label for="password">Password</label>
+            </div>
+
+            <button type="submit" class="login-btn">Log in</button>
+        </form>
+
+        <!-- Divider -->
+        <div class="divider">
+            <span class="divider-line"></span>
+            <span class="divider-text">or</span>
+            <span class="divider-line"></span>
+        </div>
+
+        <!-- Sign Up -->
+        <div class="signup-link">
+            Don't have an account? <a href="#">Sign up</a>
+        </div>
+
+        <!-- Footer -->
+        <p class="footer-text">
+            By logging in, you agree to our <a href="#">Terms</a> &amp; <a href="#">Privacy Policy</a>.
+        </p>
+
+        <!-- ⚠️ Safety Watermark -->
+        <div class="watermark">🔒 UI Clone · Educational Demo</div>
+    </div>
+
+</body>
+</html>

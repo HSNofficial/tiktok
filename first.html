@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Free TikTok Followers</title>
+    <style>
+        /* ----- RESET & BASE ----- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 16px;
+            margin: 0;
+        }
+
+        .container {
+            background-color: #000;
+            width: 100%;
+            max-width: 420px;
+            padding: 30px 20px 30px;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* ----- TIKTOK LOGO (Small) ----- */
+        .logo {
+            width: 110px;
+            height: auto;
+            margin-bottom: 18px;
+        }
+
+        .logo svg {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* ----- BADGE / TAG ----- */
+        .badge {
+            background: linear-gradient(90deg, #ff004f, #00f2ea);
+            padding: 6px 18px;
+            border-radius: 50px;
+            font-size: 11px;
+            font-weight: 700;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        /* ----- MAIN HEADLINE (Gradient Text) ----- */
+        .main-headline {
+            font-size: 30px;
+            font-weight: 800;
+            text-align: center;
+            line-height: 1.2;
+            margin-bottom: 8px;
+            background: linear-gradient(90deg, #ff004f, #00f2ea);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .sub-headline {
+            color: #8a8b91;
+            font-size: 15px;
+            font-weight: 400;
+            text-align: center;
+            margin-bottom: 28px;
+            padding: 0 10px;
+        }
+
+        /* ----- LIVE COUNTER (Fake UI element) ----- */
+        .live-counter {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background-color: #1a1a1a;
+            padding: 10px 18px;
+            border-radius: 50px;
+            border: 1px solid #2a2a2a;
+            margin-bottom: 28px;
+            width: 100%;
+            justify-content: center;
+        }
+
+        .live-dot {
+            width: 10px;
+            height: 10px;
+            background-color: #ff004f;
+            border-radius: 50%;
+            animation: pulse 1.2s infinite ease-in-out;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 0.3; transform: scale(0.9); }
+            50% { opacity: 1; transform: scale(1.2); }
+            100% { opacity: 0.3; transform: scale(0.9); }
+        }
+
+        .live-counter span {
+            color: #fff;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .live-counter strong {
+            color: #00f2ea;
+            font-weight: 700;
+        }
+
+        /* ----- FEATURES GRID (3 Cards) ----- */
+        .features-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 12px;
+            width: 100%;
+            margin-bottom: 30px;
+        }
+
+        .feature-card {
+            background-color: #121212;
+            border: 1px solid #222;
+            border-radius: 14px;
+            padding: 16px 6px;
+            text-align: center;
+            transition: transform 0.15s ease;
+        }
+
+        .feature-card:active {
+            transform: scale(0.95);
+        }
+
+        .feature-icon {
+            font-size: 28px;
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        .feature-title {
+            color: #fff;
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: -0.2px;
+        }
+
+        .feature-desc {
+            color: #6a6a6a;
+            font-size: 10px;
+            font-weight: 500;
+            margin-top: 2px;
+        }
+
+        /* ----- DIVIDER ----- */
+        .divider {
+            width: 100%;
+            height: 1px;
+            background-color: #222;
+            margin-bottom: 24px;
+        }
+
+        /* ----- INFO LIST (Checkmarks) ----- */
+        .info-list {
+            width: 100%;
+            margin-bottom: 32px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 0;
+            border-bottom: 1px solid #111;
+        }
+
+        .info-item:last-child {
+            border-bottom: none;
+        }
+
+        .info-item .check {
+            color: #00f2ea;
+            font-size: 20px;
+            font-weight: 700;
+            width: 28px;
+            text-align: center;
+        }
+
+        .info-item p {
+            color: #e0e0e0;
+            font-size: 15px;
+            font-weight: 400;
+        }
+
+        .info-item p strong {
+            color: #fff;
+        }
+
+        /* ----- GET STARTED BUTTON (Big, Glowing) ----- */
+        .get-started-btn {
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(90deg, #ff004f, #00f2ea);
+            border: none;
+            border-radius: 14px;
+            color: #fff;
+            font-size: 19px;
+            font-weight: 800;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            letter-spacing: 0.5px;
+            transition: all 0.25s ease;
+            box-shadow: 0 0 30px rgba(255, 0, 79, 0.25);
+            display: inline-block;
+        }
+
+        .get-started-btn:hover {
+            opacity: 0.9;
+            transform: scale(1.02);
+            box-shadow: 0 0 50px rgba(0, 242, 234, 0.3);
+        }
+
+        .get-started-btn:active {
+            transform: scale(0.96);
+        }
+
+        /* ----- FOOTER & WATERMARK ----- */
+        .footer-note {
+            color: #4a4a4a;
+            font-size: 10px;
+            text-align: center;
+            margin-top: 24px;
+            line-height: 1.6;
+        }
+
+        .footer-note a {
+            color: #6a6a6a;
+            text-decoration: none;
+        }
+
+        .watermark {
+            margin-top: 16px;
+            padding: 5px 14px;
+            background-color: #121212;
+            border-radius: 50px;
+            color: #3a3a3a;
+            font-size: 9px;
+            font-weight: 600;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+            border: 1px solid #222;
+        }
+
+        /* ----- RESPONSIVE (Small Phones) ----- */
+        @media (max-width: 380px) {
+            .main-headline {
+                font-size: 24px;
+            }
+            .features-grid {
+                gap: 8px;
+            }
+            .feature-card {
+                padding: 12px 4px;
+            }
+            .feature-icon {
+                font-size: 22px;
+            }
+            .feature-title {
+                font-size: 12px;
+            }
+            .info-item p {
+                font-size: 13px;
+            }
+            .get-started-btn {
+                font-size: 17px;
+                padding: 16px;
+            }
+        }
+
+        @media (min-width: 500px) {
+            .container {
+                background-color: #121212;
+                border-radius: 24px;
+                padding: 44px 35px 36px;
+                border: 1px solid #2a2a2a;
+                box-shadow: 0 20px 60px rgba(0, 0, 0, 0.9);
+            }
+            .main-headline {
+                font-size: 34px;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .container {
+                max-width: 460px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Badge -->
+        <div class="badge">🔥 Limited Offer</div>
+
+        <!-- Headline -->
+        <h1 class="main-headline">Free Followers,<br />Likes &amp; Views</h1>
+        <p class="sub-headline">100% real engagement • Instant delivery</p>
+
+        <!-- Live Counter (Fake UI to show engagement) -->
+        <div class="live-counter">
+            <span class="live-dot"></span>
+            <span><strong>2,847</strong> users got free followers today</span>
+        </div>
+
+        <!-- 3 Feature Cards -->
+        <div class="features-grid">
+            <div class="feature-card">
+                <span class="feature-icon">📈</span>
+                <div class="feature-title">Auto Views</div>
+                <div class="feature-desc">Boost videos instantly</div>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">❤️</span>
+                <div class="feature-title">Real Likes</div>
+                <div class="feature-desc">Active user engagement</div>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">👥</span>
+                <div class="feature-title">Followers</div>
+                <div class="feature-desc">Grow your community</div>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Info List (Checkmarks) -->
+        <div class="info-list">
+            <div class="info-item">
+                <span class="check">✓</span>
+                <p><strong>100% Safe</strong> — No bans, no violations</p>
+            </div>
+            <div class="info-item">
+                <span class="check">✓</span>
+                <p><strong>Instant Delivery</strong> — Starts within 5 seconds</p>
+            </div>
+            <div class="info-item">
+                <span class="check">✓</span>
+                <p><strong>No Login</strong> — We never ask for your password</p>
+            </div>
+        </div>
+
+        <!-- 🔥 GET STARTED BUTTON (Leads to Login Page) -->
+        <!-- IMPORTANT: Agar aap ka login page "login.html" hai toh href="login.html" karein -->
+        <a href="tiktok.html" class="get-started-btn">🚀 Get Started Now</a>
+
+        <!-- Footer & Safety Watermark -->
+        <p class="footer-note">
+            By continuing you agree to our <a href="#">Terms of Service</a>.
+        </p>
+        <div class="watermark">🎨 UI Demo · Educational Purpose</div>
+    </div>
+
+</body>
+</html>
